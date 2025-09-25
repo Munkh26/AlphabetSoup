@@ -41,22 +41,30 @@ public class Soup {
     public char randomLetter(){
         int num = letters.length();
         int randomNum = (int) (Math.random() * num); 
-        String randomCharacter = letters.substring(randomNum, randomNum + 1);
-        char oneCharacter = randomCharacter.charAt(0);
-        return oneCharacter;
+        char randomCharacter = letters.charAt(randomNum);
+        return randomCharacter;
     }
 
 
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
     public String companyCentered(){
-        return "";
+        int num1 = (letters.length() / 2);
+        System.out.println(num1);
+        String currentLetter = letters.substring(0, num1);
+        currentLetter += company + letters.substring(num1);
+        return currentLetter;
     }
 
 
     //should remove the first available vowel from letters. If there are no vowels this method has no effect.
     public void removeFirstVowel(){
-        
+        //int test1 = letters.indexOf("a");
+        //int test2 = letters.indexOf("e");
+        //int test3 = letters.indexOf("i");
+        //int test4 = letters.indexOf("o");
+        //int test5 = letters.indexOf("u");
+        //Fix this later
     }
 
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
