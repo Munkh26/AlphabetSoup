@@ -41,7 +41,7 @@ public class Soup {
 
     //Use Math.random() to get a random character from the letters string and return it.
     public char randomLetter(){
-        //precondition: must have some value in letters variable then use randomLetter if you wanna get randomLetter from it.
+        //precondition: must have some value in letters variable
         //poscondition: returns a random character from the letters
         int num = letters.length();
         int randomNum = (int) (Math.random() * num); 
@@ -54,7 +54,7 @@ public class Soup {
     //the letters
     public String companyCentered(){
         //precondition: have value in the letters variable, and also add name into the company variable or the company name will be "none"
-        //poscondition: returns first half of letters then company name then second half of letters. Basically put the company variable in middle of the letters.
+        //poscondition: returns first half of letters plus company name plus second half of letters. Basically put the company name in middle of the letters.
         int num1 = (letters.length() / 2);
         String currentLetter = letters.substring(0, num1);
         currentLetter += company + letters.substring(num1);
@@ -64,7 +64,7 @@ public class Soup {
 
     //should remove the first available vowel from letters. If there are no vowels this method has no effect.
     public void removeFirstVowel(){
-        //precondition: in the letters variable, have something in it if you wanna remove first available vowel from letters. If it doesn't have anything in letters then it will have no effect.
+        //precondition: have something in the letters variable if you wanna remove first available vowel from letters. Letters variable is empty then it will have no effect.
         //poscondition: it will remove the first vowel in the letters, and  if there is no vowel, it will have no effect.
         letters = letters.replaceFirst("[AEIUOaeiou]", "");
     }
@@ -73,12 +73,12 @@ public class Soup {
     public void removeSome(int num){
         //precondition: User input never exceeds the length of the Letters
         //poscondition: it returns letters that got removed num letters from a random spot.
-        int randomIndex = (int) (Math.random() * letters.length());
+        int randomIndex = (int) (Math.random() * (letters.length() - num));
         letters = letters.replaceAll(letters.substring(randomIndex, randomIndex + num), "");
     }
 
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
-    //precondition: put word that is in the letters if you wanna remove the word, but if word is not in letter then it will do nothing.
+    //precondition: put word that is in the letters in the commmand "removeWord" if you wanna remove the word, but if word is not in letter then it will do nothing.
     //poscondition: removes the word the user gave from the letters. If the word is not in letters then it does nothing.
     public void removeWord(String word){
         int num = letters.indexOf(word);
