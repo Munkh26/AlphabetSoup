@@ -73,7 +73,7 @@ public class Soup {
     public void removeSome(int num){
         //precondition: User input never exceeds the length of the Letters
         //poscondition: it returns letters that got removed num letters from a random spot.
-        int randomIndex = (int) (Math.random() * letters.length());
+        int randomIndex = (int) (Math.random() * letters.length()) - num;
         letters = letters.replaceAll(letters.substring(randomIndex, randomIndex + num), "");
     }
 
