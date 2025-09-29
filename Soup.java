@@ -33,7 +33,7 @@ public class Soup {
 
     //adds a word to the pool of letters known as "letters"
     public void add(String word){
-        //precondition: place anything after add
+        //precondition: place anything after "add" command.
         //poscondition: returns the letters with added words
         letters += word;
     }
@@ -41,8 +41,8 @@ public class Soup {
 
     //Use Math.random() to get a random character from the letters string and return it.
     public char randomLetter(){
-        //precondition: must have added some value into the letters then use randomLetter
-        //poscondition: returns a random char from the letters
+        //precondition: must have some value in letters variable then use randomLetter if you wanna get randomLetter from it.
+        //poscondition: returns a random character from the letters
         int num = letters.length();
         int randomNum = (int) (Math.random() * num); 
         char randomCharacter = letters.charAt(randomNum);
@@ -53,8 +53,8 @@ public class Soup {
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
     public String companyCentered(){
-        //precondition: must have value in the letters, and also add the company name or the company name will be "none"
-        //poscondition: returns first half of letters then company name then second half of letters 
+        //precondition: have value in the letters variable, and also add name into the company variable or the company name will be "none"
+        //poscondition: returns first half of letters then company name then second half of letters. Basically put the company variable in middle of the letters.
         int num1 = (letters.length() / 2);
         String currentLetter = letters.substring(0, num1);
         currentLetter += company + letters.substring(num1);
@@ -64,7 +64,7 @@ public class Soup {
 
     //should remove the first available vowel from letters. If there are no vowels this method has no effect.
     public void removeFirstVowel(){
-        //precondition: have a value in letters or it gives you nothing
+        //precondition: in the letters variable, have something in it if you wanna remove first available vowel from letters. If it doesn't have anything in letters then it will have no effect.
         //poscondition: it will remove the first vowel in the letters, and  if there is no vowel, it will have no effect.
         letters = letters.replaceFirst("[AEIUOaeiou]", "");
     }
@@ -73,7 +73,7 @@ public class Soup {
     public void removeSome(int num){
         //precondition: User input never exceeds the length of the Letters
         //poscondition: it returns letters that got removed num letters from a random spot.
-        int randomIndex = (int) (Math.random() * letters.length()) - num;
+        int randomIndex = (int) (Math.random() * letters.length());
         letters = letters.replaceAll(letters.substring(randomIndex, randomIndex + num), "");
     }
 
