@@ -1,6 +1,6 @@
 //Name: Munkhsoyombo Munkhbat
 //Date: 09/24/2025
-//Description: 
+//Description: This program will get inputs from the user and the program will output those acccording to do the command given by the user.
 
 public class Soup {
     //these are instance variables 
@@ -53,10 +53,9 @@ public class Soup {
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
     public String companyCentered(){
-        //precondition: must have value in the letters, and add the company name
+        //precondition: must have value in the letters, and also add the company name or the company name will be "none"
         //poscondition: returns first half of letters then company name then second half of letters 
         int num1 = (letters.length() / 2);
-        System.out.println(num1);
         String currentLetter = letters.substring(0, num1);
         currentLetter += company + letters.substring(num1);
         return currentLetter;
@@ -73,19 +72,18 @@ public class Soup {
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
     public void removeSome(int num){
         //precondition: User input never exceeds the length of the Letters
-        //poscondition: it returns letters that got removed num letters from a random spot
+        //poscondition: it returns letters that got removed num letters from a random spot.
         int randomIndex = (int) (Math.random() * letters.length());
-        String part1 = letters.substring(0, randomIndex);
-        int num2 = num - randomIndex;
-        String part2 = letters.substring(randomIndex + num2);
-        letters = part1 + part2;
+        letters = letters.replaceAll(letters.substring(randomIndex, randomIndex + num), "");
     }
 
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
+    //precondition: put word that is in the letters if you wanna remove the word, but if word is not in letter then it will do nothing.
+    //poscondition: removes the word the user gave from the letters. If the word is not in letters then it does nothing.
     public void removeWord(String word){
-        boolean condition = letters.equals(word);
-        if (condition == True) {
-            letters.replace(word, "");
+        int num = letters.indexOf(word);
+        if (num >= 0) {
+            letters = letters.replace(letters.substring(num, num + word.length()), "");
         }
     }
 }
