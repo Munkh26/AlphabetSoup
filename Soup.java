@@ -74,7 +74,7 @@ public class Soup {
         //precondition: User input never exceeds the length of the Letters
         //poscondition: it returns letters that got removed num letters from a random spot.
         int randomIndex = (int) (Math.random() * (letters.length() - num));
-        letters = letters.replaceAll(letters.substring(randomIndex, randomIndex + num), "");
+        letters = letters.substring(0, randomIndex) + letters.substring(randomIndex + num);
     }
 
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
